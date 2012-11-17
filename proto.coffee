@@ -3,6 +3,11 @@ Array::zip = ( fn, a ) ->
 
 Array::sum = () -> this.reduce ( ( total, elem ) -> total + elem ), 0
 
+Array.cons = ( head, tail ) ->
+    b = [ head ]
+    b.push.apply( b, tail )
+    b
+
 Array.head = () -> this[ 0 ]
 Array.tail = () -> this[ 1.. ]
 
