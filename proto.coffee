@@ -8,8 +8,8 @@ Array.cons = ( head, tail ) ->
     b.push.apply( b, tail )
     b
 
-Array.head = () -> this[ 0 ]
-Array.tail = () -> this[ 1.. ]
+Array::head = () -> this[ 0 ]
+Array::tail = () -> this[ 1.. ]
 
 head = ( a ) -> a.head()
 tail = ( a ) -> a.tail()
