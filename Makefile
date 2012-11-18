@@ -1,13 +1,16 @@
 CC=coffee
 CFLAGS=-c
 
-all: proto.js matrix.js
+all: proto.js vector.js matrix.js
 
 proto.js:
 	$(CC) $(CFLAGS) proto.coffee
+
+vector.js:
+	$(CC) $(CFLAGS) vector.coffee
 
 matrix.js:
 	$(CC) $(CFLAGS) matrix.coffee
 
 clean:
-	rm proto.js matrix.js
+	rm -f proto.js vector.js matrix.js

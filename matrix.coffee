@@ -1,42 +1,44 @@
-vectorAdd = ( a, b )->
-    a.zip ( ( x, y ) -> x + y ), b
+class Matrix
+    constructor: ( @matA ) ->
 
-dot = ( a, b ) ->
-    ( a.zip ( ( x, y ) -> x * y ), b ).sum()
+    neg: () ->
+        @matA.map ( row ) -> row.map ( each ) -> -each
 
-neg = ( a ) ->
-    a.map ( row ) -> row.map ( each ) -> -each
+    add: ( matB ) ->
+        @matA.zip ( ( rowA, rowB ) -> Vector( rowA ).add( Vector( rowB ) ) ), matB
 
-add = ( a, b ) ->
-    a.zip ( ( rowA, rowB ) -> vectorAdd rowA, rowB ), b
+    sub: ( matB ) ->
+        @add a, ( neg b )
 
-sub = ( a, b ) ->
-    add a, ( neg b )
+    transpose: () ->
+        if @matA[ 0 ].length < 1
+            []
+        else
+            Array.cons ( @matA.map head ), ( transpose ( @matA.map tail ) )
 
-transpose = ( a ) ->
-    if a[ 0 ].length < 1
-        []
-    else
-        Array.cons ( a.map head ), ( transpose ( a.map tail ) )
+    mul: ( matB ) ->
+        @matA.map ( row ) ->
+            transpose( matB ).map ( col ) ->
+                dot row, col
 
-mul = ( a, b ) ->
-    a.map ( row ) ->
-        transpose( b ).map ( col ) ->
-            dot row, col
+# Sylvester-inspired shortcut for Matrix factory
+$M = ( matrix ) -> new Matrix matrix
 
 sin = Math.sin
 cos = Math.cos
 
-rotateY = ( theta ) ->
-    [
+Matrix.rotateY = ( theta ) ->
+    $M( [
         [  cos( theta ), 0, sin( theta ) ],
         [  0           , 1, 0            ],
         [ -sin( theta ), 0, cos( theta ) ]
-    ]
+    ] )
 
-rotateX = ( theta ) ->
-    [
+Matrix.rotateX = ( theta ) ->
+    $M( [
         [ 1, 0,             0            ],
         [ 0, cos( theta ), -sin( theta ) ],
         [ 0, sin( theta ),  cos( theta ) ]
-    ]
+    ] )
+
+window.Matrix = Matrix

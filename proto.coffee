@@ -13,3 +13,6 @@ Array::tail = () -> this[ 1.. ]
 
 head = ( a ) -> a.head()
 tail = ( a ) -> a.tail()
+
+window.head = head
+window.tail = tail
