@@ -11,8 +11,5 @@ Array.cons = ( head, tail ) ->
 Array::head = () -> this[ 0 ]
 Array::tail = () -> this[ 1.. ]
 
-head = ( a ) -> a.head()
-tail = ( a ) -> a.tail()
-
-window.head = head
-window.tail = tail
+Array.head = ( a ) -> a.head()
+Array.tail = ( a ) -> a.tail()
