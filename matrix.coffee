@@ -5,7 +5,7 @@ dot = ( a, b ) ->
     ( a.zip ( ( x, y ) -> x * y ), b ).sum()
 
 neg = ( a ) ->
-    a.map ( row ) -> row.map ( each ) -> each *= -1
+    a.map ( row ) -> row.map ( each ) -> -each
 
 add = ( a, b ) ->
     a.zip ( ( rowA, rowB ) -> vectorAdd rowA, rowB ), b
