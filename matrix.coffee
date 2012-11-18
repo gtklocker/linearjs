@@ -42,3 +42,4 @@ Matrix.rotateX = ( theta ) ->
     ] )
 
 window.Matrix = Matrix
+window.$M = $M
