@@ -6,6 +6,26 @@ function Matrix( matrix ) {
     this.m = this.matrix[ 0 ].length;
 }
 
+// 3d rotations
+Matrix.rotateY = function( theta ) {
+    return new Matrix(
+        [
+            [  Math.cos( theta ), 0, Math.sin( theta ) ],
+            [  0                , 1, 0                 ],
+            [ -Math.sin( theta ), 0, Math.cos( theta ) ]
+        ]
+    );
+};
+Matrix.rotateX = function( theta ) {
+    return new Matrix(
+        [
+            [ 1,                 0,                  0 ],
+            [ 0, Math.cos( theta ), -Math.sin( theta ) ],
+            [ 0, Math.sin( theta ),  Math.cos( theta ) ]
+        ]
+    );
+};
+
 Matrix.prototype.array = function() {
     return this.matrix;
 };
