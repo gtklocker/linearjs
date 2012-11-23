@@ -14,7 +14,10 @@ For vectors:
 
  * addition
  * subtraction
+ * scaling
  * dot product
+ * cross product (for 3d vectors only)
+ * normalization
 
 For matrices:
 
