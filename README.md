@@ -1,6 +1,9 @@
 LinearJS
 ========
 
+**Warning: LinearJS doesn't check an operation can be applied to two objects
+and it will NOT fail gracefully if you don't provide objects that can be operated on.**
+
 About
 -----
 LinearJS is a library I started writing to use with some WebGL
