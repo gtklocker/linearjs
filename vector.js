@@ -66,7 +66,7 @@ Vector.prototype.cross = function( vector ) {
 
 Vector.prototype.norm = function() {
     var A = this.array();
-    return (
+    return Math.sqrt(
         A.map( function( x ) {
             return x * x;
         } ).sum()
